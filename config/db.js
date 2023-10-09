@@ -6,7 +6,7 @@ const connectDB = async () => {
   
 // MONGO_URL="mongodb+srv://surbhikumari6061:YC8WrfxL2PnhwjZk@cluster0.fga4ome.mongodb.net/ecommerce"
   try {
-    const conn = await mongoose.connect('mongodb+srv://surbhikumari6061:YC8WrfxL2PnhwjZk@cluster0.fga4ome.mongodb.net/ecommerce');
+    const conn = await mongoose.connect('mongodb+srv://kavinprasanth:Kavin1234@cluster0.komukur.mongodb.net/ecommerce');
     console.log(`connected to MongoDB Database ${conn.connection.host}`.bgMagenta.white);
   } catch (error) {
     console.log(`Error in MongoDB ${error}`.bgRed.white);
