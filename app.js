@@ -7,15 +7,17 @@ import authRoute from "./routes/authRoute.js";
 import categoryRoute from "./routes/categoryRoute.js";
 import productRoute from "./routes/productRoute.js"
 import cors from 'cors'
+const mongoose = require("mongoose");
 
 //configure env
 dotenv.config();
 
-connectDB();
+// connectDB();
 
 const app= express();
 
 //middlewares
+const MONGO_URI="mongodb+srv://kavinprasanth:Kavin1234@cluster0.komukur.mongodb.net/ecommerce"
 app.use(express.json())
 app.use(morgan('dev'))
 
@@ -23,6 +25,18 @@ app.use(morgan('dev'))
 app.use("/api/v1/auth", authRoute);
 app.use("/api/v1/category", categoryRoute);
 app.use("/api/v1/product", productRoute);
+
+mongoose
+  .connect(MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("DB Connection Successfull");
+  })
+  .catch((err) => {
+    console.log(err.message);
+  });
 
 //rest api
 app.get("/",(req,res)=>{
