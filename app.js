@@ -20,6 +20,9 @@ const app= express();
 const MONGO_URI="mongodb+srv://kavinprasanth:Kavin1234@cluster0.komukur.mongodb.net/ecommerce"
 app.use(express.json())
 app.use(morgan('dev'))
+app.use(cors({
+  "origin":"https://ecommerce-app-frontend-sable.vercel.app"
+}))
 
 //routes
 app.use("/api/v1/auth", authRoute);
